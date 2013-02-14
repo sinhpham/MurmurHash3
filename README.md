@@ -1,3 +1,4 @@
 MurmurHash3
 ===========
-MurmurHash3 implementation in C#.
+MurmurHash3 in C#, implements System.Security.Cryptography.HashAlgorithm
+

@@ -11,7 +11,6 @@ namespace MurmurHash3
     {
         public override void Initialize()
         {
-
         }
 
         UInt64 seed = 0;
@@ -107,10 +106,6 @@ namespace MurmurHash3
 
             h1 += h2;
             h2 += h1;
-
-            
-            //((uint64_t*)out)[0] = h1;
-            //((uint64_t*)out)[1] = h2;
         }
 
         protected override byte[] HashFinal()
