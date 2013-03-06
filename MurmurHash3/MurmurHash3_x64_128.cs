@@ -110,7 +110,7 @@ namespace MurmurHash3
 
         protected override byte[] HashFinal()
         {
-            var HashValue = new byte[16];
+            HashValue = new byte[16];
             Array.Copy(BitConverter.GetBytes(_h1), 0, HashValue, 0, 8);
             Array.Copy(BitConverter.GetBytes(_h2), 0, HashValue, 8, 8);
             return HashValue;

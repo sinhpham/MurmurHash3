@@ -14,7 +14,8 @@ namespace MurmurHash3
         {
             var h = new MurmurHash3_x64_128();
 
-            var x = VerificationTest(h, 128, 0x6384BA69, true);
+            var x = VerificationTest(h, 128, 0x6384BA69, true); // For MurmurHash3_x64_128
+            //var x = VerificationTest(h, 32, 0xB0F57EE3, true); // For MurmurHash3_x86_32
         }
 
         private static bool VerificationTest(MurmurHash3_x64_128 hash, int hashbits, UInt32 expected, bool verbose)
@@ -29,7 +30,7 @@ namespace MurmurHash3
             for (int i = 0; i < 256; i++)
             {
                 key[i] = (byte)i;
-                hash.Seed = (ulong)(256 - i);
+                hash.Seed = (uint)(256 - i);
                 var ret = hash.ComputeHash(key, 0, i);
                 Array.Copy(ret, 0, hashes, i * hashbytes, hashbytes);
             }
