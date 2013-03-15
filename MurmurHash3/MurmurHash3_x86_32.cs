@@ -34,7 +34,7 @@ namespace MurmurHash3
             UInt32 k1 = 0;
             for (int i = 0; i < nblocks; ++i)
             {
-                k1 = BitConverter.ToUInt32(data, i * 4);
+                k1 = BitConverter.ToUInt32(data, ibStart + i * 4);
 
                 k1 *= c1;
                 k1 = RotateLeft32(k1, 15);
@@ -48,7 +48,7 @@ namespace MurmurHash3
             //----------
             // tail
             k1 = 0;
-            var tailIdx = nblocks * 4;
+            var tailIdx = ibStart + nblocks * 4;
             switch (len & 3)
             {
                 case 3: k1 ^= (UInt32)(data[tailIdx + 2]) << 16;
